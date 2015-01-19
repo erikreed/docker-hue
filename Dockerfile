@@ -49,7 +49,7 @@ COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
 # Supervisord web interface -------
 EXPOSE 9999
 # hue http port
-EXPOSE 8080
+EXPOSE 8000
 
 # run command by default
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
