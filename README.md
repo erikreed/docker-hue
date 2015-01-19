@@ -20,7 +20,7 @@ then go to http://localhost:8000
 
 ### build from github source
 
-	git pull https://github.com/StudioEtrange/docker-huz
+	git pull https://github.com/StudioEtrange/docker-hue
 	cd docker-hue
 	docker build -t=studioetrange/docker-hue .
 
