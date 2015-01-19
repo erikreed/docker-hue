@@ -1,7 +1,7 @@
 FROM studioetrange/docker-debian:wheezy
 MAINTAINER StudioEtrange <nomorgan@gmail.com>
 
-# DEBIAN packages : SABNZBD dependencies install ----------
+# DEBIAN packages : HUE dependencies install ----------
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 						ant \
@@ -26,7 +26,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 	
 
-# SABNZBD install -------------
+# HUE install -------------
 ENV HUE_VERSION cdh5.3.0-release
 
 WORKDIR /opt/hue
