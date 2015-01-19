@@ -1,62 +1,51 @@
 # docker hue by StudioEtrange
 
-* Run sabnzbd inside a docker container built upon debian
-* Based on sabnzbd github source code
-* Choice of sabnzbd version
-* Install a concurrent (multithreaded) version of par2 from chuchusoft.com
-* Use supervisor to manage sabnzbd process
-* By default sabnzbd configuration and download files will be in /data/sabnzbd
+* Run hue inside a docker container built upon debian
+* Based on hue github source code
+* Choice of hue version
+* Use supervisor to manage process
 
 
 ## Sample Usage
 
-to run latest sabnzbd version :
+to run latest hue version :
 
-	docker run -d -v $(pwd):/data -p 8080:8080 studioetrange/docker-sabnzbd:latest
+	docker run -d -p 8000:8000 studioetrange/docker-hue:latest
 
-then go to http://localhost:8080
+then go to http://localhost:8000
 
 ## Version and Tag
-
-* docker-tag:latest or github-branch:master ==> latest stable sabznbd version available through this repository
-* github-branch:master ==> work in progress based on latest stable sabznbd version available through this repository
-* docker-tag:X.X.X connected to github-branch:X.X.X ==> sabnzbd version X.X.X
-* docker-tag:dev connected to github-branch:0.7.x ==> development version from sabnzbd git repository
-
-In dev case, to have an uptodate image you should
-* build the docker image yourself (see build from github souce below)
-* OR launch in the container the script /opt/sabnzbd-update.sh
 
 ## Instruction 
 
 ### build from github source
 
-	git pull https://github.com/StudioEtrange/docker-sabnzbd
-	cd docker-sabnzbd
-	docker build -t=studioetrange/docker-sabnzbd .
+	git pull https://github.com/StudioEtrange/docker-huz
+	cd docker-hue
+	docker build -t=studioetrange/docker-hue .
 
 ### retrieve image from docker registry
 
-	docker pull studioetrange/docker-sabnzbd
+	docker pull studioetrange/docker-hue
 
-### run sabnzbd 
+### run hue 
 
-	docker run -v DATA_DIR:/data -p SABNZBD_HTTP_PORT:8080 -p SABNZBD_HTTPS_PORT:8081 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-sabnzbd:SABNZBD_VERSION
+	docker run -v DATA_DIR:/data -p SABNZBD_HTTP_PORT:8080 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
 
-### run sabnzbd daemonized
+### run hue daemonized
 
-	docker run -d -v DATA_DIR:/data -p SABNZBD_HTTP_PORT:8080 -p SABNZBD_HTTPS_PORT:8081 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-sabnzbd:SABNZBD_VERSION
+	docker run -d -p HUE_HTTP_PORT:8080 SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
 
 
-### run a shell inside this container (without sabnzdbd running)
+### run a shell inside this container (without hue running)
 
-	docker run -i -t studioetrange/docker-sabnzbd
+	docker run -i -t studioetrange/docker-hue
 
 ## Access point
 
-### Sabnzbd
+### Hue
 
-	http://localhost:SABNZBD_HTTP_PORT/
+	http://localhost:HUE_HTTP_PORT/
 
 ### Supervisor
 
