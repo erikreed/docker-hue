@@ -38,7 +38,8 @@ RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
 
 RUN make apps
 
-
+RUN useradd hue -U -r -m -d /usr/lib/hue
+#RUN chmod 777 desktop/desktop.db 
 
 # SUPERVISOR -------------
 COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
