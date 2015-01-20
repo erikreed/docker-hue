@@ -36,7 +36,7 @@ RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
 
 
 RUN useradd hue -r
-RUN chmod hue:hue /opt/hue/desktop
+RUN chown hue:hue /opt/hue/desktop
 
 # SUPERVISOR -------------
 COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
