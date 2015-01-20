@@ -27,22 +27,22 @@ RUN apt-get update \
 	
 
 # HUE install -------------
-ENV HUE_VERSION cdh5.3.0-release
-
+#ENV HUE_VERSION cdh5.3.0-release
+ENV HUE_VERSION 3.7.1
 WORKDIR /opt/hue
 
 RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
 	| tar -xzf - -C /opt/hue --strip-components=1
 
 
-
-RUN make apps
-
-RUN useradd hue -U -r -m -d /usr/lib/hue
-#RUN chmod 777 desktop/desktop.db 
+RUN useradd hue -r
+RUN chmod hue:hue /opt/hue/desktop
 
 # SUPERVISOR -------------
 COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
+
+# BUILD
+RUN make apps
 
 # DOCKER -------------
 #VOLUME /data
