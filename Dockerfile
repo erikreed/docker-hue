@@ -28,7 +28,7 @@ RUN apt-get update \
 
 # HUE install -------------
 #ENV HUE_VERSION cdh5.3.0-release
-ENV HUE_VERSION 3.7.1
+ENV HUE_VERSION release-3.7.1
 WORKDIR /opt/hue
 
 RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
