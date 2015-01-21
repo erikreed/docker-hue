@@ -39,7 +39,7 @@ then go to http://localhost:8000
 
 ### run a shell inside this container (without hue running)
 
-	docker run -i -t studioetrange/docker-hue bash
+	docker run -i -t -p HUE_HTTP_PORT:8000 SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue bash
 
 ## Access point
 
