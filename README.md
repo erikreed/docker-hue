@@ -30,7 +30,7 @@ then go to http://localhost:8000
 
 ### run hue 
 
-	docker run -v DATA_DIR:/data -p SABNZBD_HTTP_PORT:8000 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
+	docker run -v DATA_DIR:/data -p HUE_HTTP_PORT:8000 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
 
 ### run hue daemonized
 
