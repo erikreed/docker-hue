@@ -32,6 +32,8 @@ then go to http://localhost:8000
 
 	docker run -v DATA_DIR:/data -p HUE_HTTP_PORT:8000 -p SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
 
+also share /opt/hue/desktop/conf
+
 ### run hue daemonized
 
 	docker run -d -p HUE_HTTP_PORT:8000 SUPERVISOR_HTTP_WEB:9999 studioetrange/docker-hue:HUE_VERSION
