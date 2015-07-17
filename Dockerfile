@@ -27,7 +27,7 @@ RUN apt-get update \
 	
 
 # HUE install -------------
-ENV HUE_VERSION release-3.8.1  # for cloudera: cdh5.3.0-release
+ENV HUE_VERSION release-3.8.1
 WORKDIR /opt/hue
 
 RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
@@ -45,7 +45,7 @@ RUN make apps && rm -Rf /root/.m2
 RUN useradd hue -r && chown hue:hue /opt/hue/desktop && chown hue:hue /opt/hue/desktop/desktop.db
 
 # DOCKER -------------
-#VOLUME /opt/hue/desktop/conf /opt/hue/desktop/desktop.db desktop/app ?
+VOLUME /opt/hue/desktop/conf /opt/hue/desktop/desktop.db desktop/app
 
 # Supervisord web interface -------
 EXPOSE 9999
