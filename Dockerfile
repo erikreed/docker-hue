@@ -34,15 +34,13 @@ RUN curl -k -SL "https://github.com/cloudera/hue/archive/$HUE_VERSION.tar.gz" \
 	| tar -xzf - -C /opt/hue --strip-components=1
 
 
-
-
 # SUPERVISOR -------------
 COPY supervisord-hue.conf /etc/supervisor/conf.d/supervisord-hue.conf
 
 # BUILD
 RUN make -j 8 apps && rm -Rf /root/.m2
 
-RUN useradd hue -r && chown hue:hue /opt/hue/desktop && chown hue:hue /opt/hue/desktop/desktop.db
+RUN useradd hue -r && chown -R hue:hue /opt/hue/
 
 # DOCKER -------------
 VOLUME /opt/hue/desktop/conf /opt/hue/desktop/desktop.db desktop/app
